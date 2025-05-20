@@ -5,7 +5,7 @@ ROOM
 
 ссылка на сайт: https://katyaivv.github.io/room.github.io/
 
-## Технологии
+Технологии
 - HTML5 (семантическая верстка)
 - CSS3 (Flexbox, Grid, адаптивная верстка)
 - JavaScript (базовые интерактивные элементы)
