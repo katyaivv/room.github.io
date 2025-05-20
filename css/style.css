@@ -361,6 +361,11 @@ footer a {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    list-style: none;
+    padding-left: 0;
+}
+.footer__menu-links li {
+    margin: 0; 
 }
 
 .footer__menu-links a:hover{
