@@ -24,7 +24,7 @@ main {
 }
 
 .container {
-    max-width: 1440px;
+    max-width: 2000px;
     margin: 0 auto;
     position: relative;
 }
@@ -37,14 +37,15 @@ header{padding-top: 140px;}
     width: auto;
     min-height: 40px;
     background-color: #F4F4F4;
-    overflow: auto;
     align-items: center;
     justify-content: flex-end;
     gap: 25px;
     text-transform: uppercase;
     font-size: 12px;
-    padding-right: 30px;
+    padding: 0px 33px;
 }
+
+
 
 .tel {
     display: flex;
@@ -87,7 +88,7 @@ header .menu {
 }
 .header-menu{
     position: fixed;
-    z-index: 9999;
+    z-index: 1000;
     width: 100%;
     background-color: #FFFFFF;
     top: 0;
@@ -136,6 +137,78 @@ header .location img {
     width: 1327px;
 }
 
+/* Стили для выпадающего списка языков */
+.lang__list-wrapper {
+    top: calc(100% + 8px); 
+    background-color: #F4F4F4; /* фон */
+    display: none;
+    position: absolute;
+    left: auto; /* отменяем левое позиционирование */
+    right: 0; /* привязываем к правому краю родителя */
+    z-index: 1002;
+    margin-top: 5px;
+    min-width: 120px;
+}
+
+
+.lang__list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+}
+
+.lang__list a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    color: #AAAAAA;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.lang__list a:hover {
+    background-color: #e3e3e3;
+}
+
+
+/* Иконка языка */
+.languages svg.lang {
+    transition: transform 0.2s;
+}
+
+.languages svg.lang {
+    transition: transform 0.5s ease;
+    transform-origin: center;
+}
+
+/* Класс для поворота на 180 градусов */
+.languages.rotated svg.lang {
+    transform: rotate(180deg);
+}
+
+/* Обновленные стили для выпадающего списка языков */
+.languages {
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+
+.languages.active .lang__list-wrapper {
+    display: block;
+}
+
+/* Остальные стили остаются такими же */
+/* Убедитесь, что родительские элементы не обрезают выпадающий список */
+.header-menu, 
+.header-menu .container, 
+.contact {
+    overflow: visible !important;
+}
 /* -----------------------------------------projects------------------------------------------ */
 
 .projects {
@@ -147,6 +220,8 @@ header .location img {
     flex-wrap: wrap;
     gap: 32px 24px;
     justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 
 .projects img {
@@ -201,14 +276,21 @@ header .location img {
 }
 
 .advantages-box img {
+    display: flex;
     width: 162px;
-    margin: auto;
+    height: 159px;
+    margin: 0 auto;
+}
+
+.advantages-box .as{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
 .advantages-box h3 {
     color: #1A1A1A;
     font-size: 24px;
-    padding-top: 45px;
     padding-bottom: 19px;
 }
 
@@ -294,14 +376,14 @@ header .location img {
     text-decoration: underline;
 }
 
-.sss {
+.subscription_button {
     display: flex;
     gap: 26px;
     flex-direction: column;
     align-items: center;
 }
 
-/* -----------------------------------------footer------------------------------------------ */
+/* ----------------------------------------- Footer ----------------------------------------- */
 .footer {
     background-color: #2B2B2B;
     color: #FFFFFF;
@@ -325,6 +407,10 @@ footer a {
     text-decoration: none;
 }
 
+footer a:hover {
+    text-decoration: underline;
+}
+
 .footer__logo {
     width: 87px;
 }
@@ -333,13 +419,18 @@ footer a {
     width: 14px;
 }
 
+/* Меню футера */
 .footer__menu {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
+}
 
+.footer__menu-group {
+    display: flex;
+    gap: 75px;
 }
 
 .footer__menu-item {
@@ -348,13 +439,10 @@ footer a {
     gap: 10px;
 }
 
-.footer__menu-group {
-    display: flex;
-    gap: 75px;
-}
-
 .footer__menu-item a {
     font-size: 14px;
+    display: flex;
+    width: 150px;
 }
 
 .footer__menu-links {
@@ -364,50 +452,50 @@ footer a {
     list-style: none;
     padding-left: 0;
 }
+
 .footer__menu-links li {
-    margin: 0; 
+    margin: 0;
 }
 
-.footer__menu-links a:hover{
-    text-decoration: underline;
-}
-
-
+/* Follow us */
 .footer__follow-us {
     display: flex;
-    gap: 17px;
     flex-direction: column;
-
+    gap: 17px;
 }
-
 
 .footer__follow-us p {
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.5px;
 }
+
 .footer__social-links {
     display: flex;
     gap: 13px;
 }
+
 .footer__follow-us img {
     width: 25px;
 }
 
-.footer__mailing-list{
+/* Mailing list */
+.footer__mailing-list {
     margin-left: 38px;
 }
-.footer__mailing-list p:first-child{
-    font-size: 13px;
+
+.footer__mailing-list p:first-child {
+    font-size: 14px;
     letter-spacing: 0.5px;
     line-height: 21px;
-}
-.footer__mailing-list p{
-    font-size: 14px;
-    margin-top: 17px;
+    margin-bottom: 17px;
 }
 
+.footer__mailing-list p {
+    width: 350px;
+}
 
+/* Input box */
 .footer__input-box {
     display: flex;
     align-items: center;
@@ -428,18 +516,68 @@ footer a {
     color: #DADADA;
 }
 
-.footer__location {
+/* Language switcher in footer */
+.languages2 {
+    position: relative;
+    color: #AAAAAA;
+    z-index: 1001;
     display: flex;
+    justify-content: end;
+    margin-right: 35px;
     gap: 5px;
-    padding-right: 35px;
-    margin-top: 16px;
-    justify-content: flex-end;
+    padding-top: 17px;
 }
 
-.footer__location p{
-    opacity: 0.5;
+.languages2 svg.lang2 {
+    width: 14px;
+    transition: transform 0.5s ease;
+    transform-origin: center;
 }
 
+.languages2.rotated svg.lang2 {
+    transform: rotate(180deg);
+}
+
+
+
+.lang__list-wrapper2 {
+    top: calc(100%); 
+    background-color: #575757; /* фон */
+    display: none;
+    position: absolute;
+    left: auto; /* отменяем левое позиционирование */
+    right: 0; /* привязываем к правому краю родителя */
+    z-index: 1002;
+    margin-top: 5px;
+    min-width: 120px;
+    list-style: none;
+    border-radius: 5%;
+}
+
+.lang__list-wrapper2 ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.lang__list-wrapper2 li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 12px;
+}
+.lang__list-wrapper2 li:hover {
+    background-color: #f4f4f4;
+    border-radius: 5%;
+}
+
+.languages2.active .lang__list-wrapper2 {
+    display: block;
+}
+
+/* Agreement checkbox */
 .footer__agreement {
     display: flex;
     font-size: 11px;
@@ -452,7 +590,7 @@ footer a {
     gap: 12px;
 }
 
-.footer__agreement label{
+.footer__agreement label {
     width: 390px;
 }
 
@@ -462,23 +600,22 @@ footer a {
     width: 28px;
     height: 26px;
     margin: 0;
-    border: 1px solid #999; /* Серая рамка */
-    background-color: transparent; /* Прозрачный фон */
-    vertical-align: middle; /* Выравнивание по центру с текстом */
+    border: 1px solid #999;
+    background-color: transparent;
+    vertical-align: middle;
     cursor: pointer;
 }
 
-/* Стиль при наведении */
+/* Наведение на чекбокс */
 .footer__agreement input[type="checkbox"]:hover {
-    border-color: #666; /* Темнее при наведении */
+    border-color: #666;
 }
 
-/* Стиль для активного (отмеченного) чекбокса */
+/* Отмеченный чекбокс */
 .footer__agreement input[type="checkbox"]:checked {
     border-color: #999;
     position: relative;
 }
-
 
 .footer__agreement input[type="checkbox"]:checked::before {
     content: "✓";
@@ -490,7 +627,8 @@ footer a {
     transform: translate(-50%, -50%);
 }
 
-.footer__sign-up{
+/* Sign Up button */
+.footer__sign-up {
     display: flex;
     font-size: 14px;
     line-height: 60px;
@@ -500,11 +638,12 @@ footer a {
     margin-left: 62%;
     justify-content: space-around;
 }
-.footer__sign-up a:hover{
+
+.footer__sign-up a:hover {
     opacity: 0.5;
 }
 
-
+/* Back to top */
 .footer__back-to-top {
     writing-mode: sideways-lr;
     display: flex;
@@ -513,13 +652,98 @@ footer a {
     text-transform: uppercase;
 }
 
-.footer__back-to-top:hover{
+.footer__back-to-top:hover {
     text-decoration: underline;
 }
 
 
 
+/*  -------------------------------------------- modal -------------------------------------------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 10000;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+.modal.active .modal__content {
+    transform: scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal__btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 10000;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 /* ----------------------------------------media------------------------------------------ */
+@media(max-width:1900px){
+        .projects__content {
+        width: 100%;
+    }
+}
+
 @media(max-width:1300px){
     .baner img{
         width: 100%;
@@ -527,7 +751,9 @@ footer a {
     .subscription__box{
         width: 90%;
     }
+
 }
+
 
 @media(max-width:1200px){
     .projects{
@@ -567,7 +793,6 @@ footer a {
     .footer__menu{
         display: flex;
         gap: 90px;
-        flex-direction: row;
         margin-top: 80px;
     }
     .footer__menu-group{
@@ -720,7 +945,7 @@ footer a {
         height: 40px;
         font-size: 14px;
     }
-    .sss{
+    .subscription_button{
         gap: 16px;
     }
     .advantages__content a {
@@ -769,3 +994,6 @@ footer a {
         margin: 20px auto 20px;
     }
 }
+
+
+
